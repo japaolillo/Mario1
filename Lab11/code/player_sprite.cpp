@@ -18,10 +18,10 @@ namespace csis3700 {
   void player_sprite::create_image_sequence() {
     image_sequence *s = new image_sequence();
     image_library *il = image_library::get();
-    s->add_image(il->get("mariowalk1.bmp"), 0);
-    /*s->add_image(il->get("StickMan2.png"), 0.1);
-    s->add_image(il->get("StickMan3.png"), 0.1);
-    s->add_image(il->get("StickMan2.png"), 0.1); */
+    s->add_image(il->get("mariowalk1.png"), 0);
+    s->add_image(il->get("mariowalk2.png"), 0.1);
+    s->add_image(il->get("mariowalk3.png"), 0.1);
+    s->add_image(il->get("mariowalk2.png"), 0.1);
     set_image_sequence(s);
   }
 
