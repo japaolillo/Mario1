@@ -1,0 +1,97 @@
+\hypertarget{classcsis3700_1_1rectangle}{}\section{csis3700\+:\+:rectangle Class Reference}
+\label{classcsis3700_1_1rectangle}\index{csis3700\+::rectangle@{csis3700\+::rectangle}}
+
+
+{\ttfamily \#include $<$rectangle.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcsis3700_1_1rectangle_a12769987479c35eb82d4c327c5af31fb}{rectangle} (float x, float y, float width, float height)
+\item 
+\hyperlink{classcsis3700_1_1rectangle_a343355b4f013ac440b155d634ebc1c5c}{rectangle} (\hyperlink{classcsis3700_1_1vec2d}{vec2d} corner, float width, float height)
+\item 
+\hyperlink{classcsis3700_1_1rectangle_a65e217f0a67f76c2014b34f5995c689d}{rectangle} (\hyperlink{classcsis3700_1_1vec2d}{vec2d} \hyperlink{classcsis3700_1_1rectangle_a8d1b0714f3e711e5aaa6b708d358b945}{upper\+\_\+left\+\_\+corner}, \hyperlink{classcsis3700_1_1vec2d}{vec2d} \hyperlink{classcsis3700_1_1rectangle_af54b1619b62550375df6a272b25c96b6}{lower\+\_\+right\+\_\+corner})
+\item 
+\mbox{\Hypertarget{classcsis3700_1_1rectangle_acf6f6686418d6c645704cadee57d6e83}\label{classcsis3700_1_1rectangle_acf6f6686418d6c645704cadee57d6e83}} 
+float {\bfseries get\+\_\+width} () const
+\item 
+\mbox{\Hypertarget{classcsis3700_1_1rectangle_a019b442975cc327d4693c214edfe15c4}\label{classcsis3700_1_1rectangle_a019b442975cc327d4693c214edfe15c4}} 
+float {\bfseries get\+\_\+height} () const
+\item 
+\mbox{\Hypertarget{classcsis3700_1_1rectangle_ab8a18ef5682e35b877600c3051d580c2}\label{classcsis3700_1_1rectangle_ab8a18ef5682e35b877600c3051d580c2}} 
+float {\bfseries get\+\_\+area} () const
+\item 
+\hyperlink{classcsis3700_1_1vec2d}{vec2d} \hyperlink{classcsis3700_1_1rectangle_a8d1b0714f3e711e5aaa6b708d358b945}{upper\+\_\+left\+\_\+corner} () const
+\item 
+\hyperlink{classcsis3700_1_1vec2d}{vec2d} \hyperlink{classcsis3700_1_1rectangle_af54b1619b62550375df6a272b25c96b6}{lower\+\_\+right\+\_\+corner} () const
+\item 
+\hyperlink{classcsis3700_1_1rectangle}{rectangle} \hyperlink{classcsis3700_1_1rectangle_ae6306167ac675bdf07cf3a834f1148ae}{intersection} (const \hyperlink{classcsis3700_1_1rectangle}{rectangle} \&other) const
+\item 
+bool \hyperlink{classcsis3700_1_1rectangle_a15d2ad3f67159bd7724a3728203b1f29}{contains} (\hyperlink{classcsis3700_1_1vec2d}{vec2d} point) const
+\item 
+bool \hyperlink{classcsis3700_1_1rectangle_a8d897bc040bd296de7206a0576189dc6}{is\+\_\+degenerate} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I represent an oriented rectangle. My sides are parallel to the x and y axes of the coordinate system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcsis3700_1_1rectangle_a12769987479c35eb82d4c327c5af31fb}\label{classcsis3700_1_1rectangle_a12769987479c35eb82d4c327c5af31fb}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!rectangle@{rectangle}}
+\index{rectangle@{rectangle}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{rectangle()}{rectangle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily csis3700\+::rectangle\+::rectangle (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+Construct a rectangle. Note if width or height is negative then this rectangle is considered degenerate (empty). \mbox{\Hypertarget{classcsis3700_1_1rectangle_a343355b4f013ac440b155d634ebc1c5c}\label{classcsis3700_1_1rectangle_a343355b4f013ac440b155d634ebc1c5c}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!rectangle@{rectangle}}
+\index{rectangle@{rectangle}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{rectangle()}{rectangle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily csis3700\+::rectangle\+::rectangle (\begin{DoxyParamCaption}\item[{\hyperlink{classcsis3700_1_1vec2d}{vec2d}}]{corner,  }\item[{float}]{width,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+Construct a rectangle by specifying the position of its upper left corner as well as its dimensions. \mbox{\Hypertarget{classcsis3700_1_1rectangle_a65e217f0a67f76c2014b34f5995c689d}\label{classcsis3700_1_1rectangle_a65e217f0a67f76c2014b34f5995c689d}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!rectangle@{rectangle}}
+\index{rectangle@{rectangle}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{rectangle()}{rectangle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily csis3700\+::rectangle\+::rectangle (\begin{DoxyParamCaption}\item[{\hyperlink{classcsis3700_1_1vec2d}{vec2d}}]{upper\+\_\+left\+\_\+corner,  }\item[{\hyperlink{classcsis3700_1_1vec2d}{vec2d}}]{lower\+\_\+right\+\_\+corner }\end{DoxyParamCaption})}
+
+Construct a rectangle given two corners. The order of the corners is important. upper\+\_\+left\+\_\+corner must be above and to the left of lower\+\_\+right\+\_\+corner or the rectangle will be degenerate. Note orientation is in terms of typical graphical coordinates (increasing y is down). 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcsis3700_1_1rectangle_a15d2ad3f67159bd7724a3728203b1f29}\label{classcsis3700_1_1rectangle_a15d2ad3f67159bd7724a3728203b1f29}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!contains@{contains}}
+\index{contains@{contains}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily bool csis3700\+::rectangle\+::contains (\begin{DoxyParamCaption}\item[{\hyperlink{classcsis3700_1_1vec2d}{vec2d}}]{point }\end{DoxyParamCaption}) const}
+
+Returns true iff this rectangle contains the point specified by the supplied vector (relative to the origin). \mbox{\Hypertarget{classcsis3700_1_1rectangle_ae6306167ac675bdf07cf3a834f1148ae}\label{classcsis3700_1_1rectangle_ae6306167ac675bdf07cf3a834f1148ae}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!intersection@{intersection}}
+\index{intersection@{intersection}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{intersection()}{intersection()}}
+{\footnotesize\ttfamily \hyperlink{classcsis3700_1_1rectangle}{rectangle} csis3700\+::rectangle\+::intersection (\begin{DoxyParamCaption}\item[{const \hyperlink{classcsis3700_1_1rectangle}{rectangle} \&}]{other }\end{DoxyParamCaption}) const}
+
+Return the rectangle representing the intersection (overlap) between this rectangle and other. If I do not intersect other, return a degenerate rectangle. \mbox{\Hypertarget{classcsis3700_1_1rectangle_a8d897bc040bd296de7206a0576189dc6}\label{classcsis3700_1_1rectangle_a8d897bc040bd296de7206a0576189dc6}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!is\+\_\+degenerate@{is\+\_\+degenerate}}
+\index{is\+\_\+degenerate@{is\+\_\+degenerate}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{is\+\_\+degenerate()}{is\_degenerate()}}
+{\footnotesize\ttfamily bool csis3700\+::rectangle\+::is\+\_\+degenerate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return true if this rectangle is degenerate. A degenerate rectangle is one with negative width or height. \mbox{\Hypertarget{classcsis3700_1_1rectangle_af54b1619b62550375df6a272b25c96b6}\label{classcsis3700_1_1rectangle_af54b1619b62550375df6a272b25c96b6}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!lower\+\_\+right\+\_\+corner@{lower\+\_\+right\+\_\+corner}}
+\index{lower\+\_\+right\+\_\+corner@{lower\+\_\+right\+\_\+corner}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{lower\+\_\+right\+\_\+corner()}{lower\_right\_corner()}}
+{\footnotesize\ttfamily \hyperlink{classcsis3700_1_1vec2d}{vec2d} csis3700\+::rectangle\+::lower\+\_\+right\+\_\+corner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return my lower right corner \mbox{\Hypertarget{classcsis3700_1_1rectangle_a8d1b0714f3e711e5aaa6b708d358b945}\label{classcsis3700_1_1rectangle_a8d1b0714f3e711e5aaa6b708d358b945}} 
+\index{csis3700\+::rectangle@{csis3700\+::rectangle}!upper\+\_\+left\+\_\+corner@{upper\+\_\+left\+\_\+corner}}
+\index{upper\+\_\+left\+\_\+corner@{upper\+\_\+left\+\_\+corner}!csis3700\+::rectangle@{csis3700\+::rectangle}}
+\subsubsection{\texorpdfstring{upper\+\_\+left\+\_\+corner()}{upper\_left\_corner()}}
+{\footnotesize\ttfamily \hyperlink{classcsis3700_1_1vec2d}{vec2d} csis3700\+::rectangle\+::upper\+\_\+left\+\_\+corner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return my upper left corner 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rectangle.\+h\item 
+rectangle.\+cpp\end{DoxyCompactItemize}

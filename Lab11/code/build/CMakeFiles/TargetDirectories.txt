@@ -1,0 +1,4 @@
+/Users/shaffer/Courses/CSIS3700/Labs/Lab12/code/build/CMakeFiles/rebuild_cache.dir
+/Users/shaffer/Courses/CSIS3700/Labs/Lab12/code/build/CMakeFiles/edit_cache.dir
+/Users/shaffer/Courses/CSIS3700/Labs/Lab12/code/build/CMakeFiles/doc.dir
+/Users/shaffer/Courses/CSIS3700/Labs/Lab12/code/build/CMakeFiles/main.dir
