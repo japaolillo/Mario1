@@ -13,7 +13,7 @@ using namespace csis3700;
 const float FPS = 60;
 
 const size_t WIDTH=1920;
-const size_t HEIGHT=1624;
+const size_t HEIGHT=1080;
 
 int main(int argc, char **argv){
     ALLEGRO_BITMAP* background= NULL;
