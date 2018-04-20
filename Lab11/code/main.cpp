@@ -14,7 +14,6 @@ const float FPS = 60;
 
 const size_t WIDTH=1920;
 const size_t HEIGHT=1080;
-//test
 
 int main(int argc, char **argv){
     ALLEGRO_BITMAP* background=nullptr;
