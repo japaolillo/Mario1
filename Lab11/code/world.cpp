@@ -20,7 +20,7 @@ namespace csis3700 {
   }
 
   world::world() {
-      background=image_library::get()->get("background.bmp");
+      background=image_library::get()->get("background.png");
       sprite *player = new player_sprite(0,700);
       sprites.push_back(player);
   }
