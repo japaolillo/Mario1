@@ -14,7 +14,11 @@ const float FPS = 60;
 
 const size_t WIDTH=1920;
 const size_t HEIGHT=1080;
+<<<<<<< HEAD
 //Ya mom's a hoe
+=======
+//Troy
+>>>>>>> 73dc277ec7aedc21dc39f804cc45ff444290fd85
 
 int main(int argc, char **argv){
     ALLEGRO_BITMAP* background=nullptr;
