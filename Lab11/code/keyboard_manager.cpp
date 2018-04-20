@@ -9,7 +9,7 @@ namespace csis3700 {
   keyboard_manager *keyboard_manager::get() {
     if (default_instance == NULL)
       default_instance = new keyboard_manager();
-    return default_instance; 
+    return default_instance;
   }
 
   keyboard_manager::keyboard_manager() {
@@ -19,6 +19,10 @@ namespace csis3700 {
     ALLEGRO_KEYBOARD_STATE s;
     al_get_keyboard_state(&s);
     return al_key_down(&s,keycode);
+  }
+
+  bool keyboard_manager::was_key_pressed(int keybode) {
+
   }
 
 

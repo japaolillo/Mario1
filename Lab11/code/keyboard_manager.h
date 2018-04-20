@@ -13,6 +13,7 @@ namespace csis3700 {
      * Answers true iff the specified key currently held down
      */
     bool is_key_down(int keycode);
+    bool was_key_pressed(int keybode);
 
 
   private:
