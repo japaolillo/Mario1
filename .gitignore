@@ -9,3 +9,5 @@ obj
 *.dll
 *.layout
 *.dll
+*.cbp
+*.layout
