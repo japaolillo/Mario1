@@ -11,3 +11,6 @@ obj
 *.dll
 *.cbp
 *.layout
+*.depend
+*.exe
+*.o

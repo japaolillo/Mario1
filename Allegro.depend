@@ -809,3 +809,111 @@
 	"allegro5/allegro_primitives.h"
 	"world.h"
 
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\collision.cpp
+	"collision.h"
+	"rectangle.h"
+	<iostream>
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\collision.h
+	"sprite.h"
+	"rectangle.h"
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\sprite.h
+	"allegro5/allegro.h"
+	"image_sequence.h"
+	"vec2d.h"
+	"rectangle.h"
+	<cstdlib>
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\image_sequence.h
+	<cstdlib>
+	<vector>
+	"allegro5/allegro.h"
+	"allegro5/allegro_image.h"
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\vec2d.h
+	<ostream>
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\rectangle.h
+	"vec2d.h"
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\image_library.cpp
+	"image_library.h"
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\image_library.h
+	<string>
+	<map>
+	<iostream>
+	"allegro5/allegro.h"
+	"allegro5/allegro_image.h"
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\image_sequence.cpp
+	"image_sequence.h"
+	"allegro5/allegro.h"
+	<cassert>
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\keyboard_manager.cpp
+	"keyboard_manager.h"
+	<allegro5/allegro.h>
+	<cstdlib>
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\keyboard_manager.h
+	<set>
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\obstruction_sprite.cpp
+	"obstruction_sprite.h"
+	"image_library.h"
+	"image_sequence.h"
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\obstruction_sprite.h
+	"sprite.h"
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\phys_sprite.cpp
+	"sprite.h"
+	"phys_sprite.h"
+	<vector>
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\phys_sprite.h
+	<vector>
+	"sprite.h"
+
+1524185724 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\player_sprite.cpp
+	"player_sprite.h"
+	"image_library.h"
+	"image_sequence.h"
+	"vec2d.h"
+	"collision.h"
+	<cmath>
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\player_sprite.h
+	"phys_sprite.h"
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\rectangle.cpp
+	"rectangle.h"
+	"vec2d.h"
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\sprite.cpp
+	"sprite.h"
+
+1524184083 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\vec2d.cpp
+	"vec2d.h"
+	<cmath>
+
+1524185724 source:c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\world.cpp
+	"world.h"
+	<cassert>
+	<algorithm>
+	"sprite.h"
+	"allegro5/allegro.h"
+	"allegro5/allegro_image.h"
+	"player_sprite.h"
+	"obstruction_sprite.h"
+	"collision.h"
+	"image_library.h"
+
+1524184083 c:\users\paoli\desktop\final project csis 3700\mario1\lab11\code\world.h
+	"allegro5/allegro.h"
+	"sprite.h"
+	"player_sprite.h"
+	<vector>
+
