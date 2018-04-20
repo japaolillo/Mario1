@@ -7,3 +7,5 @@ bin
 obj
 *.layout
 *.dll
+*.layout
+*.dll
