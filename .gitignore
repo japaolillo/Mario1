@@ -6,3 +6,4 @@ allegro_monolith-5.2.dll
 bin
 obj
 *.layout
+*.dll
