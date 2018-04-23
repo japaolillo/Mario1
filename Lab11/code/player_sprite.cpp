@@ -19,22 +19,29 @@ namespace csis3700 {
         //set_velocity(vec2d(-500,0));
         if (get_velocity().get_x() > -500)
             set_acceleration(vec2d(-4000,0));
+
+        phys_sprite::advance_by_time(dt);
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
     {
         set_acceleration(vec2d(500,0));
         if (get_velocity().get_x() < 500)
             set_acceleration(vec2d(4000,0));
+            phys_sprite::advance_by_time(dt);
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+    {
       set_velocity(vec2d(0,-50));
+    }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_DOWN))
+    {
       set_velocity(vec2d(0,50));
+    }
     else
     {
         set_velocity(vec2d(0,0));
     }
-    phys_sprite::advance_by_time(dt);
+    //phys_sprite::advance_by_time(dt);
   }
   void player_sprite::create_image_sequence() {
     image_sequence *s = new image_sequence();
