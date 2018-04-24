@@ -83,7 +83,7 @@ namespace csis3700 {
     else
     {
         if (get_y() == player_floor)
-            set_velocity(vec2d(0,0));
+        set_velocity(vec2d(0,0));
         else if (get_y() < player_floor)
         {
             set_acceleration(vec2d(0,10000));
