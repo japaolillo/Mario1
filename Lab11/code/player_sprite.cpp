@@ -16,30 +16,69 @@ namespace csis3700 {
   void player_sprite::advance_by_time(double dt) {
     if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT))
     {
-        //set_velocity(vec2d(-500,0));
-        if (get_velocity().get_x() > -500)
-            set_acceleration(vec2d(-4000,0));
-
+        if (get_y() == 700)
+        {
+            if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+                set_velocity(vec2d(-1000,-3000));
+            else
+                set_velocity(vec2d(-1000,get_velocity().get_y()));
+        }
+        if (get_y() < 700)
+        {
+            set_acceleration(vec2d(get_acceleration().get_x(),10000));
+        }
+        if (get_y() > 700)
+        {
+            set_acceleration(vec2d(get_acceleration().get_x(),0));
+            set_velocity(vec2d(-1000,0));
+            set_position(vec2d(get_position().get_x(), 700));
+        }
         phys_sprite::advance_by_time(dt);
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
     {
-        set_acceleration(vec2d(500,0));
-        if (get_velocity().get_x() < 500)
-            set_acceleration(vec2d(4000,0));
-            phys_sprite::advance_by_time(dt);
+        if (get_y() == 700)
+        {
+            if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+                set_velocity(vec2d(1000,-3000));
+            else
+                set_velocity(vec2d(1000,get_velocity().get_y()));
+        }
+        if (get_y() < 700)
+        {
+            set_acceleration(vec2d(get_acceleration().get_x(),10000));
+        }
+        if (get_y() > 700)
+        {
+            set_acceleration(vec2d(get_acceleration().get_x(),0));
+            set_velocity(vec2d(1000,0));
+            set_position(vec2d(get_position().get_x(), 700));
+        }
+        phys_sprite::advance_by_time(dt);
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
     {
-      set_velocity(vec2d(0,-50));
+        set_velocity(vec2d(0,-3000));
+        phys_sprite::advance_by_time(dt);
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_DOWN))
     {
-      set_velocity(vec2d(0,50));
+
     }
     else
     {
-        set_velocity(vec2d(0,0));
+        if (get_y() == 700)
+            set_velocity(vec2d(0,0));
+        else if (get_y() < 700)
+            set_acceleration(vec2d(0,10000));
+        else if (get_y() > 700)
+        {
+            set_position(vec2d(get_position().get_x(), 700));
+            set_acceleration(vec2d(get_acceleration().get_x(), 0));
+            set_velocity(vec2d(get_velocity().get_x(),0));
+        }
+
+        phys_sprite::advance_by_time(dt);
     }
     //phys_sprite::advance_by_time(dt);
   }
