@@ -27,7 +27,7 @@ namespace csis3700 {
         if (get_y() < player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
-            set_velocity(vec2d(-1000,get_velocity().get_y()));
+            //set_velocity(vec2d(-1000,get_velocity().get_y()));
         }
         if (get_y() > player_floor)
         {
@@ -49,7 +49,7 @@ namespace csis3700 {
         if (get_y() < player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
-            set_velocity(vec2d(1000,get_velocity().get_y()));
+            //set_velocity(vec2d(1000,get_velocity().get_y()));
         }
         if (get_y() > player_floor)
         {
@@ -61,7 +61,19 @@ namespace csis3700 {
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
     {
-        set_velocity(vec2d(0,-3000));
+        if (get_y() == player_floor)
+        {
+            set_velocity(vec2d(0,-3000));
+            set_acceleration(vec2d(get_acceleration().get_x(),10000));
+        }
+        if (get_y() < player_floor)
+            set_acceleration(vec2d(get_acceleration().get_x(),10000));
+        if (get_y() > player_floor)
+        {
+            set_acceleration(vec2d(get_acceleration().get_x(),0));
+            set_velocity(vec2d(1000,0));
+            set_position(vec2d(get_position().get_x(), player_floor));
+        }
         phys_sprite::advance_by_time(dt);
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_DOWN))
