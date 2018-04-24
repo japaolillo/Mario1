@@ -71,7 +71,7 @@ namespace csis3700 {
         if (get_y() > player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),0));
-            set_velocity(vec2d(1000,0));
+            set_velocity(vec2d(0,0));
             set_position(vec2d(get_position().get_x(), player_floor));
         }
         phys_sprite::advance_by_time(dt);
