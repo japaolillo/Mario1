@@ -72,15 +72,17 @@ namespace csis3700 {
         if (get_y() == 700)
             set_velocity(vec2d(0,0));
         else if (get_y() < 700)
+        {
             set_acceleration(vec2d(0,10000));
+            phys_sprite::advance_by_time(dt);
+        }
         else if (get_y() > 700)
         {
             set_position(vec2d(get_position().get_x(), 700));
             set_acceleration(vec2d(get_acceleration().get_x(), 0));
             set_velocity(vec2d(get_velocity().get_x(),0));
+            phys_sprite::advance_by_time(dt);
         }
-
-        phys_sprite::advance_by_time(dt);
     }
     //phys_sprite::advance_by_time(dt);
   }

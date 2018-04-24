@@ -22,7 +22,9 @@ namespace csis3700 {
   world::world() {
       background=image_library::get()->get("background.png");
       sprite *player = new player_sprite(0,700);
+      //sprite *ground = new phys_sprite(0,800);
       sprites.push_back(player);
+      //sprites.push_back(ground);
   }
 
   world::world(const world& other) {
@@ -52,6 +54,12 @@ namespace csis3700 {
   }
 
   void world::draw() {
+    ALLEGRO_TRANSFORM t;
+    sprite* player = sprites.front();
+    al_identity_transform(&t);
+    if (player != nullptr)
+      al_translate_transform(&t, -player->get_x()+50, 0);
+    al_use_transform(&t);
     al_clear_to_color(al_map_rgb(255,255,255));
     al_draw_bitmap(background, -1920, 0, 0);
     al_draw_bitmap(background, 0, 0, 0);
