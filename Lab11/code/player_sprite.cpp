@@ -11,50 +11,51 @@ namespace csis3700 {
 
   player_sprite::player_sprite(float initial_x, float initial_y) : phys_sprite(initial_x, initial_y) {
         this->create_image_sequence();
+        player_floor = 700;
   }
 
   void player_sprite::advance_by_time(double dt) {
     if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT))
     {
-        if (get_y() == 700)
+        if (get_y() == player_floor)
         {
             if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
                 set_velocity(vec2d(-1000,-3000));
             else
                 set_velocity(vec2d(-1000,get_velocity().get_y()));
         }
-        if (get_y() < 700)
+        if (get_y() < player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
             set_velocity(vec2d(-1000,get_velocity().get_y()));
         }
-        if (get_y() > 700)
+        if (get_y() > player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),0));
             set_velocity(vec2d(-1000,0));
-            set_position(vec2d(get_position().get_x(), 700));
+            set_position(vec2d(get_position().get_x(), player_floor));
         }
         phys_sprite::advance_by_time(dt);
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
     {
-        if (get_y() == 700)
+        if (get_y() == player_floor)
         {
             if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
                 set_velocity(vec2d(1000,-3000));
             else
                 set_velocity(vec2d(1000,get_velocity().get_y()));
         }
-        if (get_y() < 700)
+        if (get_y() < player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
             set_velocity(vec2d(1000,get_velocity().get_y()));
         }
-        if (get_y() > 700)
+        if (get_y() > player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),0));
             set_velocity(vec2d(1000,0));
-            set_position(vec2d(get_position().get_x(), 700));
+            set_position(vec2d(get_position().get_x(), player_floor));
         }
         phys_sprite::advance_by_time(dt);
     }
@@ -69,16 +70,16 @@ namespace csis3700 {
     }
     else
     {
-        if (get_y() == 700)
+        if (get_y() == player_floor)
             set_velocity(vec2d(0,0));
-        else if (get_y() < 700)
+        else if (get_y() < player_floor)
         {
             set_acceleration(vec2d(0,10000));
             phys_sprite::advance_by_time(dt);
         }
-        else if (get_y() > 700)
+        else if (get_y() > player_floor)
         {
-            set_position(vec2d(get_position().get_x(), 700));
+            set_position(vec2d(get_position().get_x(), player_floor));
             set_acceleration(vec2d(get_acceleration().get_x(), 0));
             set_velocity(vec2d(get_velocity().get_x(),0));
             phys_sprite::advance_by_time(dt);

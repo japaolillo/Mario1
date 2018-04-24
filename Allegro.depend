@@ -735,12 +735,12 @@
 	"allegro5/allegro.h"
 	<cassert>
 
-1524186413 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\keyboard_manager.cpp
+1524596119 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\keyboard_manager.cpp
 	"keyboard_manager.h"
 	<allegro5/allegro.h>
 	<cstdlib>
 
-1524186413 c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\keyboard_manager.h
+1524240209 c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\keyboard_manager.h
 	<set>
 
 1524186413 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\obstruction_sprite.cpp
@@ -760,15 +760,16 @@
 	<vector>
 	"sprite.h"
 
-1524186413 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\player_sprite.cpp
+1524597250 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\player_sprite.cpp
 	"player_sprite.h"
 	"image_library.h"
 	"image_sequence.h"
 	"vec2d.h"
 	"collision.h"
+	"keyboard_manager.h"
 	<cmath>
 
-1524186413 c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\player_sprite.h
+1524614112 c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\player_sprite.h
 	"phys_sprite.h"
 
 1524186413 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\rectangle.cpp
@@ -782,7 +783,7 @@
 	"vec2d.h"
 	<cmath>
 
-1524186413 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\world.cpp
+1524599008 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\world.cpp
 	"world.h"
 	<cassert>
 	<algorithm>
@@ -794,13 +795,13 @@
 	"collision.h"
 	"image_library.h"
 
-1524186413 c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\world.h
+1524599008 c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\world.h
 	"allegro5/allegro.h"
 	"sprite.h"
 	"player_sprite.h"
 	<vector>
 
-1524188213 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\main.cpp
+1524238898 source:c:\users\troyk\documents\data_structures_objects\final_git\mario1\lab11\code\main.cpp
 	<cmath>
 	<iostream>
 	"allegro5/allegro.h"

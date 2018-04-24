@@ -9,6 +9,7 @@ namespace csis3700 {
     virtual void advance_by_time(double dt);
   private:
     void create_image_sequence();
+    int player_floor;
   };
 }
 
