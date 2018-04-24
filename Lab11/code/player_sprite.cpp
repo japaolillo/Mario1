@@ -27,7 +27,7 @@ namespace csis3700 {
         if (get_y() < player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
-            //set_velocity(vec2d(-1000,get_velocity().get_y()));
+            set_velocity(vec2d(-1000,get_velocity().get_y()));
         }
         if (get_y() > player_floor)
         {
@@ -49,7 +49,7 @@ namespace csis3700 {
         if (get_y() < player_floor)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
-            //set_velocity(vec2d(1000,get_velocity().get_y()));
+            set_velocity(vec2d(1000,get_velocity().get_y()));
         }
         if (get_y() > player_floor)
         {
