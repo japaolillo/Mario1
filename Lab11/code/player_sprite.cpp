@@ -26,6 +26,7 @@ namespace csis3700 {
         if (get_y() < 700)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
+            set_velocity(vec2d(-1000,get_velocity().get_y()));
         }
         if (get_y() > 700)
         {
@@ -47,6 +48,7 @@ namespace csis3700 {
         if (get_y() < 700)
         {
             set_acceleration(vec2d(get_acceleration().get_x(),10000));
+            set_velocity(vec2d(1000,get_velocity().get_y()));
         }
         if (get_y() > 700)
         {

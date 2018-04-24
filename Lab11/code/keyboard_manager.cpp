@@ -21,7 +21,7 @@ namespace csis3700 {
     return al_key_down(&s,keycode);
   }
 
-  bool keyboard_manager::was_key_pressed(int keybode) {
+  bool keyboard_manager::was_key_pressed(int keycode) {
 
   }
 
