@@ -15,6 +15,9 @@ namespace csis3700 {
   }
 
   void player_sprite::advance_by_time(double dt) {
+    if(keyboard_manager::get()->was_key_pressed(ALLEGRO_KEY_L)){
+        create_image_sequence_switch();
+    }
     if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT))
     {
         if (get_y() == player_floor)
@@ -108,5 +111,13 @@ namespace csis3700 {
     s->add_image(il->get("mariowalk2.png"), 0.1);
     set_image_sequence(s);
   }
-
+  void player_sprite::create_image_sequence_switch() {
+    image_sequence *s2 = new image_sequence();
+    image_library *il2 = image_library::get();
+    s2->add_image(il2->get("luigiwalk1.png"), 0);
+    s2->add_image(il2->get("luigiwalk2.png"), 0.1);
+    s2->add_image(il2->get("luigiwalk3.png"), 0.1);
+    s2->add_image(il2->get("luigiwalk2.png"), 0.1);
+    set_image_sequence(s2);
+    }
 }
