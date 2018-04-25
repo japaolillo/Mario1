@@ -18,7 +18,6 @@ namespace csis3700 {
 
   void player_sprite::advance_by_time(double dt) {
       ltime += 1;
-      cout << ltime << endl;
     if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)){
         if(is_luigi==false && ltime > 30) {
             is_luigi=true;
