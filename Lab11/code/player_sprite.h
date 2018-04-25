@@ -10,6 +10,8 @@ namespace csis3700 {
   private:
     void create_image_sequence();
     int player_floor;
+    image_sequence walk;
+    image_sequence stand;
   };
 }
 
