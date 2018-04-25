@@ -20,6 +20,7 @@ namespace csis3700 {
     }
     if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT))
     {
+        set_image_sequence(&walk);
         if (get_y() == player_floor)
         {
             if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
@@ -42,6 +43,7 @@ namespace csis3700 {
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
     {
+        set_image_sequence(&walk);
         if (get_y() == player_floor)
         {
             if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
@@ -64,6 +66,7 @@ namespace csis3700 {
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
     {
+        set_image_sequence(&walk);
         if (get_y() == player_floor)
         {
             set_velocity(vec2d(0,-3000));
@@ -85,6 +88,7 @@ namespace csis3700 {
     }
     else
     {
+
         if (get_y() == player_floor)
         set_velocity(vec2d(0,0));
         else if (get_y() < player_floor)
@@ -99,17 +103,17 @@ namespace csis3700 {
             set_velocity(vec2d(get_velocity().get_x(),0));
             phys_sprite::advance_by_time(dt);
         }
+        set_image_sequence(&stand);
     }
     //phys_sprite::advance_by_time(dt);
   }
   void player_sprite::create_image_sequence() {
-    image_sequence *s = new image_sequence();
     image_library *il = image_library::get();
-    s->add_image(il->get("mariowalk1.png"), 0);
-    s->add_image(il->get("mariowalk2.png"), 0.1);
-    s->add_image(il->get("mariowalk3.png"), 0.1);
-    s->add_image(il->get("mariowalk2.png"), 0.1);
-    set_image_sequence(s);
+    walk.add_image(il->get("mariowalk1.png"), 0);
+    walk.add_image(il->get("mariowalk2.png"), 0.1);
+    walk.add_image(il->get("mariowalk3.png"), 0.1);
+    walk.add_image(il->get("mariowalk2.png"), 0.1);
+    stand.add_image(il->get("mariowalk1.png"),0);
   }
   void player_sprite::create_image_sequence_switch() {
     image_sequence *s2 = new image_sequence();

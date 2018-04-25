@@ -11,6 +11,8 @@ namespace csis3700 {
     void create_image_sequence();
     void create_image_sequence_switch();
     int player_floor;
+    image_sequence walk;
+    image_sequence stand;
   };
 }
 
