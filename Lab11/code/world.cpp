@@ -8,6 +8,7 @@
 #include "obstruction_sprite.h"
 #include "collision.h"
 #include "image_library.h"
+#include "enemy.h"
 
 using namespace std;
 
@@ -22,9 +23,9 @@ namespace csis3700 {
   world::world() {
       background=image_library::get()->get("background.png");
       sprite *player = new player_sprite(0,700);
-      //sprite *ground = new phys_sprite(0,800);
+      sprite *enemy1 = new enemy(500,700);
       sprites.push_back(player);
-      //sprites.push_back(ground);
+      sprites.push_back(enemy1);
   }
 
   world::world(const world& other) {
