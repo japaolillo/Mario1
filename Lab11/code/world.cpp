@@ -62,9 +62,10 @@ namespace csis3700 {
     al_use_transform(&t);
     al_clear_to_color(al_map_rgb(255,255,255));
     int background_width = al_get_bitmap_width(background);
-    al_draw_bitmap(background, -background_width, 0, 0);
-    al_draw_bitmap(background, 0, 0, 0);
-    al_draw_bitmap(background, background_width, 0, 0);
+    int bn=player->get_x()/background_width;
+    al_draw_bitmap(background,bn*background_width-background_width, 0, 0);
+    al_draw_bitmap(background, bn*background_width, 0, 0);
+    al_draw_bitmap(background,bn*background_width+background_width, 0, 0);
     for(vector<sprite*>::iterator it = sprites.begin(); it != sprites.end(); ++it)
       (*it)->draw();
   }
