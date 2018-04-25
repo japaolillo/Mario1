@@ -5,22 +5,36 @@
 #include "collision.h"
 #include "keyboard_manager.h"
 #include <cmath>
+#include <iostream>
 using namespace std;
 
 namespace csis3700 {
 
   player_sprite::player_sprite(float initial_x, float initial_y) : phys_sprite(initial_x, initial_y) {
         this->create_image_sequence();
+        this->create_image_sequence_switch();
         player_floor = 700;
   }
 
   void player_sprite::advance_by_time(double dt) {
-    if(keyboard_manager::get()->was_key_pressed(ALLEGRO_KEY_L)){
-        create_image_sequence_switch();
+      ltime += 1;
+      cout << ltime << endl;
+    if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)){
+        if(is_luigi==false && ltime > 30) {
+            is_luigi=true;
+            ltime = 0;
+        }
+        else if( is_luigi==true && ltime > 30) {
+            is_luigi=false;
+            ltime = 0;
+        }
     }
     if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT))
     {
-        set_image_sequence(&walk);
+        if(is_luigi==true)
+        set_image_sequence(&lwalk);
+        else
+            set_image_sequence(&walk);
         if (get_y() == player_floor)
         {
             if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
@@ -43,7 +57,10 @@ namespace csis3700 {
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
     {
-        set_image_sequence(&walk);
+        if(is_luigi==true)
+        set_image_sequence(&lwalk);
+        else
+            set_image_sequence(&walk);
         if (get_y() == player_floor)
         {
             if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
@@ -66,7 +83,10 @@ namespace csis3700 {
     }
     else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
     {
-        set_image_sequence(&walk);
+        if(is_luigi==true)
+        set_image_sequence(&lwalk);
+        else
+            set_image_sequence(&walk);
         if (get_y() == player_floor)
         {
             set_velocity(vec2d(0,-3000));
@@ -103,7 +123,10 @@ namespace csis3700 {
             set_velocity(vec2d(get_velocity().get_x(),0));
             phys_sprite::advance_by_time(dt);
         }
-        set_image_sequence(&stand);
+        if(is_luigi==true)
+        set_image_sequence(&lstand);
+        else
+            set_image_sequence(&stand);
     }
     //phys_sprite::advance_by_time(dt);
   }
@@ -116,12 +139,11 @@ namespace csis3700 {
     stand.add_image(il->get("mariowalk1.png"),0);
   }
   void player_sprite::create_image_sequence_switch() {
-    image_sequence *s2 = new image_sequence();
     image_library *il2 = image_library::get();
-    s2->add_image(il2->get("luigiwalk1.png"), 0);
-    s2->add_image(il2->get("luigiwalk2.png"), 0.1);
-    s2->add_image(il2->get("luigiwalk3.png"), 0.1);
-    s2->add_image(il2->get("luigiwalk2.png"), 0.1);
-    set_image_sequence(s2);
+    lwalk.add_image(il2->get("luigiwalk1.png"), 0);
+    lwalk.add_image(il2->get("luigiwalk2.png"), 0.1);
+    lwalk.add_image(il2->get("luigiwalk3.png"), 0.1);
+    lwalk.add_image(il2->get("luigiwalk2.png"), 0.1);
+    lstand.add_image(il2->get("luigiwalk1.png"),0);
     }
 }

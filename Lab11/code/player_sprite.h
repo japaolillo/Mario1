@@ -13,6 +13,10 @@ namespace csis3700 {
     int player_floor;
     image_sequence walk;
     image_sequence stand;
+    image_sequence lwalk;
+    image_sequence lstand;
+    bool is_luigi=false;
+    double ltime=0;
   };
 }
 

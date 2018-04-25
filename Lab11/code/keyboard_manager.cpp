@@ -22,7 +22,9 @@ namespace csis3700 {
   }
 
   bool keyboard_manager::was_key_pressed(int keycode) {
-
+      /* ALLEGRO_KEYBOARD_STATE s;
+      al_get_keyboard_state(&s);
+      return al_key */
   }
 
 
