@@ -37,4 +37,12 @@ namespace csis3700 {
         set_velocity(vec2d(xspeed,0));
         phys_sprite::advance_by_time(dt);
     }
+    bool enemy::is_player() const
+    {
+        return false;
+    }
+    bool enemy::is_enemy() const
+    {
+        return true;
+    }
 }

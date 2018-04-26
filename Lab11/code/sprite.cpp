@@ -10,7 +10,7 @@ namespace csis3700 {
   void sprite::set_image_sequence(image_sequence *s) {
     sequence = s;
   }
-    
+
   sprite::~sprite() {
   }
 
@@ -52,12 +52,18 @@ namespace csis3700 {
     time += dt;
   }
 
+
   vec2d sprite::get_position() const {
     return position;
   }
 
   void sprite::set_position(vec2d p) {
     position = p;
+  }
+
+  void sprite::kill_player()
+  {
+      assert(is_player());
   }
 
 

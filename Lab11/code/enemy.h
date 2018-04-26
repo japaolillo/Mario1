@@ -8,6 +8,8 @@ namespace csis3700 {
         public:
             enemy(float initial_x, float initial_y);
             virtual void advance_by_time(double dt);
+            bool is_player() const;
+            bool is_enemy() const;
         protected:
 
         private:

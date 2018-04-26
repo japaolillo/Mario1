@@ -56,10 +56,8 @@ namespace csis3700 {
 
   void world::handle_collisions(std::vector<collision>& c)
   {
-      for (auto i = c.begin(); i != c.end(); ++i)
-      {
-
-      }
+      for(auto it = c.begin(); it != c.end(); ++it)
+        it->resolve();
   }
 
   void world::advance_by_time(double dt) {
