@@ -13,7 +13,7 @@ namespace csis3700 {
     enemy::enemy(float initial_x, float initial_y) : phys_sprite(initial_x, initial_y)
     {
         this->create_image_sequence();
-        enemy_floor = 768;
+        enemy_floor = 775;
         srand(std::time(NULL));
         random = rand();
     }
@@ -21,10 +21,8 @@ namespace csis3700 {
     {
         image_sequence *s = new image_sequence();
         image_library *il = image_library::get();
-        s->add_image(il->get("mariowalk1.png"), 0);
-        s->add_image(il->get("mariowalk2.png"), 0.1);
-        s->add_image(il->get("mariowalk3.png"), 0.1);
-        s->add_image(il->get("mariowalk2.png"), 0.1);
+        s->add_image(il->get("enemy1.png"), .2);
+        s->add_image(il->get("enemy2.png"), .3);
         set_image_sequence(s);
     }
     void enemy::advance_by_time(double dt)
