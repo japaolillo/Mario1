@@ -10,7 +10,7 @@ namespace csis3700 {
   void sprite::set_image_sequence(image_sequence *s) {
     sequence = s;
   }
-    
+
   sprite::~sprite() {
   }
 
@@ -51,6 +51,7 @@ namespace csis3700 {
   void sprite::advance_by_time(double dt) {
     time += dt;
   }
+
 
   vec2d sprite::get_position() const {
     return position;

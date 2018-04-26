@@ -10,6 +10,7 @@ namespace csis3700 {
     collision(sprite* p1, sprite* p2);
     sprite** get_participants();
     rectangle collision_rectangle() const;
+    void resolve();
 
   private:
     sprite* participants[2];

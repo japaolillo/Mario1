@@ -44,6 +44,8 @@ namespace csis3700 {
 
     virtual void set_velocity(const vec2d& v) = 0;
 
+    virtual bool is_player() const = 0;
+
     /**
      * Draw this sprite.
      */
@@ -73,7 +75,7 @@ namespace csis3700 {
     virtual rectangle collision_rectangle(const sprite& other) const;
 
   protected:
-    
+
     /**
      * My position
      */
