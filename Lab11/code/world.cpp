@@ -23,7 +23,7 @@ namespace csis3700 {
   world::world() {
       background=image_library::get()->get("background.png");
       sprite *player = new player_sprite(0,700);
-      sprite *enemy1 = new enemy(500,700);
+      sprite *enemy1 = new enemy(500,768);
       sprites.push_back(player);
       sprites.push_back(enemy1);
   }

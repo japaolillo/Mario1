@@ -48,6 +48,8 @@ namespace csis3700 {
 
     virtual bool is_enemy() const = 0;
 
+    virtual bool is_coin() const = 0;
+
     virtual void kill_player();
 
     /**

@@ -19,7 +19,8 @@ namespace csis3700 {
 
   void collision::resolve()
   {
-      if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_enemy() || participants[1]->is_enemy()))
+        //Player hits enemy
+        if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_enemy() || participants[1]->is_enemy()))
         {
             sprite* player;
             if (participants[0]->is_player())
@@ -28,6 +29,15 @@ namespace csis3700 {
                 player = participants[1];
             //player->set_velocity(vec2d(player->get_velocity().get_x(), -500));
             player->kill_player();
+        }
+        //Change to if player hits coin
+        if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_coin() || participants[1]->is_coin()))
+        {
+            sprite* coin;
+            if (participants[0]->is_coin())
+                coin = participants[0];
+            else
+                coin = participants[1];
         }
   }
 
