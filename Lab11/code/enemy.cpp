@@ -13,7 +13,7 @@ namespace csis3700 {
     enemy::enemy(float initial_x, float initial_y) : phys_sprite(initial_x, initial_y)
     {
         this->create_image_sequence();
-        enemy_floor = 700;
+        enemy_floor = 768;
         srand(std::time(NULL));
         random = rand();
     }
