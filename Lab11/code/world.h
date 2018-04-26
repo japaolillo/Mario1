@@ -55,12 +55,15 @@ namespace csis3700 {
      */
     bool should_exit();
 
+    void add_score();
+
   private:
     void resolve_collisions();
     void handle_collisions(std::vector<collision>& c);
     player_sprite *player;
     std::vector<sprite*> sprites;
     ALLEGRO_BITMAP* background;
+    int score;
   };
 }
 

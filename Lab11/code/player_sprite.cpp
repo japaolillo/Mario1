@@ -26,6 +26,8 @@ namespace csis3700 {
   }
 
   void player_sprite::advance_by_time(double dt) {
+    if (is_luigi)
+        player_floor = 754;
     if (is_alive) {
         ltime += 1;
         if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)) //Shapeshift
@@ -62,7 +64,7 @@ namespace csis3700 {
             }
             if (get_y() > player_floor)
             {
-                //set_velocity(vec2d(-1000,0));
+                set_velocity(vec2d(-1000,0));
                 set_position(vec2d(get_position().get_x(), player_floor));
             }
         }
