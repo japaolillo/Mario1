@@ -16,6 +16,11 @@ namespace csis3700 {
         player_floor = 700;
   }
 
+  bool player_sprite::is_player() const
+  {
+      return true;
+  }
+
   void player_sprite::advance_by_time(double dt) {
       ltime += 1;
     if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)){

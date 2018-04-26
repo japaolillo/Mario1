@@ -7,6 +7,7 @@ namespace csis3700 {
   public:
     player_sprite(float initial_x=0, float initial_y=0);
     virtual void advance_by_time(double dt);
+    bool is_player() const;
   private:
     void create_image_sequence();
     void create_image_sequence_switch();

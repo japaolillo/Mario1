@@ -44,8 +44,22 @@ namespace csis3700 {
   void world::handle_event(ALLEGRO_EVENT ev) {
   }
 
-  void world::resolve_collisions() {
 
+  void world::resolve_collisions() {
+    vector<collision> collisions;
+    for(auto i=sprites.begin(); i != sprites.end(); ++i)
+      for(auto j=i+1; j != sprites.end(); j++)
+        if ((*i)->collides_with(**j))
+          collisions.push_back(collision(*i, *j));
+    handle_collisions(collisions);
+  }
+
+  void world::handle_collisions(std::vector<collision>& c)
+  {
+      for (auto i = c.begin(); i != c.end(); ++i)
+      {
+
+      }
   }
 
   void world::advance_by_time(double dt) {
