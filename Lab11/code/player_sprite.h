@@ -8,6 +8,7 @@ namespace csis3700 {
     player_sprite(float initial_x=0, float initial_y=0);
     virtual void advance_by_time(double dt);
     bool is_player() const;
+    bool is_enemy() const;
     void kill_player();
   private:
     void create_image_sequence();
@@ -17,6 +18,7 @@ namespace csis3700 {
     image_sequence stand;
     image_sequence lwalk;
     image_sequence lstand;
+    image_sequence dead;
     bool is_luigi=false;
     double ltime=0;
     bool is_alive = true;

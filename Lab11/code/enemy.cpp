@@ -41,4 +41,8 @@ namespace csis3700 {
     {
         return false;
     }
+    bool enemy::is_enemy() const
+    {
+        return true;
+    }
 }

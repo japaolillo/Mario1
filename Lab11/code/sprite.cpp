@@ -61,5 +61,10 @@ namespace csis3700 {
     position = p;
   }
 
+  void sprite::kill_player()
+  {
+      assert(is_player());
+  }
+
 
 }

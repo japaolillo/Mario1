@@ -19,14 +19,15 @@ namespace csis3700 {
 
   void collision::resolve()
   {
-      if (participants[0]->is_player() || participants[1]->is_player())
+      if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_enemy() || participants[1]->is_enemy()))
         {
             sprite* player;
             if (participants[0]->is_player())
                 player = participants[0];
             else
                 player = participants[1];
-            player->set_velocity(vec2d(player->get_velocity().get_x(), -500));
+            //player->set_velocity(vec2d(player->get_velocity().get_x(), -500));
+            player->kill_player();
         }
   }
 
