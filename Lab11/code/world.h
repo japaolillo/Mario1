@@ -61,6 +61,7 @@ namespace csis3700 {
     player_sprite *player;
     std::vector<sprite*> sprites;
     ALLEGRO_BITMAP* background;
+    int score;
   };
 }
 

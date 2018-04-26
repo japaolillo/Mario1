@@ -21,6 +21,7 @@ namespace csis3700 {
   }
 
   world::world() {
+      score = 0;
       background=image_library::get()->get("background.png");
       sprite *player = new player_sprite(0,700);
       sprite *enemy1 = new enemy(500,768);
