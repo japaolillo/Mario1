@@ -22,126 +22,122 @@ namespace csis3700 {
   }
 
   void player_sprite::advance_by_time(double dt) {
-      ltime += 1;
-    if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)){
-        if(is_luigi==false && ltime > 30) {
-            is_luigi=true;
-            ltime = 0;
-        }
-        else if( is_luigi==true && ltime > 30) {
-            is_luigi=false;
-            ltime = 0;
-        }
-    }
-    if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT))
-    {
-        if(is_luigi==true)
-        set_image_sequence(&lwalk);
-        else
-            set_image_sequence(&walk);
-        if (get_y() == player_floor)
-        {
-            if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
-                set_velocity(vec2d(-1000,-3000));
+      if (is_alive) {
+              ltime += 1;
+            if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)){
+                if(is_luigi==false && ltime > 30) {
+                    is_luigi=true;
+                    ltime = 0;
+                }
+                else if( is_luigi==true && ltime > 30) {
+                    is_luigi=false;
+                    ltime = 0;
+                }
+            }
+            if (get_y() < player_floor)
+            {
+                set_acceleration(vec2d(get_acceleration().get_x(), 10000));
+            }
+            if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT))
+            {
+                if(is_luigi==true)
+                set_image_sequence(&lwalk);
+                else
+                    set_image_sequence(&walk);
+                if (get_y() == player_floor)
+                {
+                    if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+                        set_velocity(vec2d(-1000,-3000));
+                    else
+                        set_velocity(vec2d(-1000,get_velocity().get_y()));
+                }
+                if (get_y() < player_floor)
+                {
+                    set_velocity(vec2d(-1000,get_velocity().get_y()));
+                }
+                if (get_y() > player_floor)
+                {
+                    set_velocity(vec2d(-1000,0));
+                    set_position(vec2d(get_position().get_x(), player_floor));
+                }
+                phys_sprite::advance_by_time(dt);
+            }
+            else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
+            {
+                if(is_luigi==true)
+                set_image_sequence(&lwalk);
+                else
+                    set_image_sequence(&walk);
+                if (get_y() == player_floor)
+                {
+                    if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+                        set_velocity(vec2d(1000,-3000));
+                    else
+                        set_velocity(vec2d(1000,get_velocity().get_y()));
+                }
+                if (get_y() < player_floor)
+                {
+                    set_velocity(vec2d(1000,get_velocity().get_y()));
+                }
+                if (get_y() > player_floor)
+                {
+                    set_acceleration(vec2d(get_acceleration().get_x(),0));
+                    set_velocity(vec2d(1000,0));
+                    set_position(vec2d(get_position().get_x(), player_floor));
+                }
+                phys_sprite::advance_by_time(dt);
+            }
+            else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+            {
+                if(is_luigi==true)
+                set_image_sequence(&lwalk);
+                else
+                    set_image_sequence(&walk);
+                if (get_y() == player_floor)
+                {
+                    set_velocity(vec2d(0,-3000));
+                }
+                if (get_y() > player_floor)
+                {
+                    set_acceleration(vec2d(get_acceleration().get_x(),0));
+                    set_velocity(vec2d(0,0));
+                    set_position(vec2d(get_position().get_x(), player_floor));
+                }
+                phys_sprite::advance_by_time(dt);
+            }
             else
-                set_velocity(vec2d(-1000,get_velocity().get_y()));
-        }
-        if (get_y() < player_floor)
-        {
-            set_acceleration(vec2d(get_acceleration().get_x(),10000));
-            set_velocity(vec2d(-1000,get_velocity().get_y()));
-        }
-        if (get_y() > player_floor)
-        {
-            set_acceleration(vec2d(get_acceleration().get_x(),0));
-            set_velocity(vec2d(-1000,0));
-            set_position(vec2d(get_position().get_x(), player_floor));
-        }
-        phys_sprite::advance_by_time(dt);
-    }
-    else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
-    {
-        if(is_luigi==true)
-        set_image_sequence(&lwalk);
-        else
-            set_image_sequence(&walk);
-        if (get_y() == player_floor)
-        {
-            if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
-                set_velocity(vec2d(1000,-3000));
-            else
-                set_velocity(vec2d(1000,get_velocity().get_y()));
-        }
-        if (get_y() < player_floor)
-        {
-            set_acceleration(vec2d(get_acceleration().get_x(),10000));
-            set_velocity(vec2d(1000,get_velocity().get_y()));
-        }
-        if (get_y() > player_floor)
-        {
-            set_acceleration(vec2d(get_acceleration().get_x(),0));
-            set_velocity(vec2d(1000,0));
-            set_position(vec2d(get_position().get_x(), player_floor));
-        }
-        phys_sprite::advance_by_time(dt);
-    }
-    else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
-    {
-        if(is_luigi==true)
-        set_image_sequence(&lwalk);
-        else
-            set_image_sequence(&walk);
-        if (get_y() == player_floor)
-        {
-            set_velocity(vec2d(0,-3000));
-            set_acceleration(vec2d(get_acceleration().get_x(),10000));
-        }
-        if (get_y() < player_floor)
-            set_acceleration(vec2d(get_acceleration().get_x(),10000));
-        if (get_y() > player_floor)
-        {
-            set_acceleration(vec2d(get_acceleration().get_x(),0));
-            set_velocity(vec2d(0,0));
-            set_position(vec2d(get_position().get_x(), player_floor));
-        }
-        phys_sprite::advance_by_time(dt);
-    }
-    else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_DOWN))
-    {
+            {
 
-    }
-    else
-    {
-
-        if (get_y() == player_floor)
-        set_velocity(vec2d(0,0));
-        else if (get_y() < player_floor)
-        {
-            set_acceleration(vec2d(0,10000));
-            phys_sprite::advance_by_time(dt);
-        }
-        else if (get_y() > player_floor)
-        {
-            set_position(vec2d(get_position().get_x(), player_floor));
-            set_acceleration(vec2d(get_acceleration().get_x(), 0));
-            set_velocity(vec2d(get_velocity().get_x(),0));
-            phys_sprite::advance_by_time(dt);
-        }
-        if(is_luigi==true)
-        set_image_sequence(&lstand);
-        else
-            set_image_sequence(&stand);
-    }
+                if (get_y() == player_floor)
+                    set_velocity(vec2d(0,0));
+                else if (get_y() < player_floor)
+                {
+                    phys_sprite::advance_by_time(dt);
+                }
+                else if (get_y() > player_floor)
+                {
+                    set_position(vec2d(get_position().get_x(), player_floor));
+                    set_acceleration(vec2d(get_acceleration().get_x(), 0));
+                    set_velocity(vec2d(get_velocity().get_x(),0));
+                    phys_sprite::advance_by_time(dt);
+                }
+                if(is_luigi==true)
+                    set_image_sequence(&lstand);
+                else
+                    set_image_sequence(&stand);
+            }
+      }
     //phys_sprite::advance_by_time(dt);
   }
-  void player_sprite::create_image_sequence() {
-    image_library *il = image_library::get();
-    walk.add_image(il->get("mariowalk1.png"), 0);
-    walk.add_image(il->get("mariowalk2.png"), 0.1);
-    walk.add_image(il->get("mariowalk3.png"), 0.1);
-    walk.add_image(il->get("mariowalk2.png"), 0.1);
-    stand.add_image(il->get("mariowalk1.png"),0);
-  }
+    void player_sprite::create_image_sequence()
+    {
+        image_library *il = image_library::get();
+        walk.add_image(il->get("mariowalk1.png"), 0);
+        walk.add_image(il->get("mariowalk2.png"), 0.1);
+        walk.add_image(il->get("mariowalk3.png"), 0.1);
+        walk.add_image(il->get("mariowalk2.png"), 0.1);
+        stand.add_image(il->get("mariowalk1.png"),0);
+    }
   void player_sprite::create_image_sequence_switch() {
     image_library *il2 = image_library::get();
     lwalk.add_image(il2->get("luigiwalk1.png"), 0);
@@ -149,5 +145,10 @@ namespace csis3700 {
     lwalk.add_image(il2->get("luigiwalk3.png"), 0.1);
     lwalk.add_image(il2->get("luigiwalk2.png"), 0.1);
     lstand.add_image(il2->get("luigiwalk1.png"),0);
+    }
+
+    void player_sprite::kill_player()
+    {
+        is_alive = false;
     }
 }
