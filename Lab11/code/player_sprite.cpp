@@ -13,7 +13,7 @@ namespace csis3700 {
   player_sprite::player_sprite(float initial_x, float initial_y) : phys_sprite(initial_x, initial_y) {
         this->create_image_sequence();
         this->create_image_sequence_switch();
-        player_floor = 700;
+        player_floor = 768;
   }
 
   bool player_sprite::is_player() const
