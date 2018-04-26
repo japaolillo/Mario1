@@ -55,6 +55,8 @@ namespace csis3700 {
      */
     bool should_exit();
 
+    void add_score();
+
   private:
     void resolve_collisions();
     void handle_collisions(std::vector<collision>& c);

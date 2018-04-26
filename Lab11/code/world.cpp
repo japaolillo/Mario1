@@ -45,6 +45,11 @@ namespace csis3700 {
   void world::handle_event(ALLEGRO_EVENT ev) {
   }
 
+  void world::add_score()
+  {
+      score++;
+  }
+
 
   void world::resolve_collisions() {
     vector<collision> collisions;
@@ -58,7 +63,7 @@ namespace csis3700 {
   void world::handle_collisions(std::vector<collision>& c)
   {
       for(auto it = c.begin(); it != c.end(); ++it)
-        it->resolve();
+        it->resolve(this);
   }
 
   void world::advance_by_time(double dt) {

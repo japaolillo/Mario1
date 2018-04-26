@@ -1,6 +1,7 @@
 #include "collision.h"
 #include "rectangle.h"
 #include "sprite.h"
+#include "world.h"
 #include <iostream>
 #include <cassert>
 using namespace std;
@@ -17,7 +18,7 @@ namespace csis3700 {
     return participants[0]->collision_rectangle(*participants[1]);
   }
 
-  void collision::resolve()
+  void collision::resolve(world* w)
   {
         //Player hits enemy
         if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_enemy() || participants[1]->is_enemy()))
@@ -33,11 +34,20 @@ namespace csis3700 {
         //Change to if player hits coin
         if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_coin() || participants[1]->is_coin()))
         {
+
             sprite* coin;
+            sprite* player;
             if (participants[0]->is_coin())
+            {
                 coin = participants[0];
+                player = participants[1];
+            }
             else
+            {
                 coin = participants[1];
+                player = participants[0];
+            }
+            w->add_score();
         }
   }
 

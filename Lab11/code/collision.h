@@ -3,6 +3,7 @@
 
 #include "sprite.h"
 #include "rectangle.h"
+#include "world.h"
 
 namespace csis3700 {
   class collision {
@@ -10,7 +11,7 @@ namespace csis3700 {
     collision(sprite* p1, sprite* p2);
     sprite** get_participants();
     rectangle collision_rectangle() const;
-    void resolve();
+    void resolve(world* w);
 
   private:
     sprite* participants[2];
