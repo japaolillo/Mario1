@@ -133,6 +133,7 @@ namespace csis3700 {
   }
     void player_sprite::create_image_sequence()
     {
+        //146 x 194
         image_library *il = image_library::get();
         walk.add_image(il->get("mariowalk1.png"), 0);
         walk.add_image(il->get("mariowalk2.png"), 0.1);
