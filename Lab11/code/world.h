@@ -57,6 +57,10 @@ namespace csis3700 {
 
     void add_score();
 
+    int get_score() {
+        return score;
+    }
+
   private:
     void resolve_collisions();
     void handle_collisions(std::vector<collision>& c);

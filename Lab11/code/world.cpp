@@ -9,7 +9,8 @@
 #include "collision.h"
 #include "image_library.h"
 #include "enemy.h"
-
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 using namespace std;
 
 namespace csis3700 {

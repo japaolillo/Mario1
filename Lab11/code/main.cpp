@@ -4,9 +4,12 @@
 #include "allegro5/allegro_image.h"
 #include "allegro5/allegro_native_dialog.h"
 #include "allegro5/allegro_primitives.h"
-
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro_color.h>
 #include "world.h"
-
+#include <string>
+#include <sstream>
 using namespace std;
 using namespace csis3700;
 
@@ -30,6 +33,14 @@ int main(int argc, char **argv){
      cerr << "Failed to initialize al_init_image_addon!" << endl;
      exit(1);
    }
+   if(!al_init_font_addon()) {
+     cerr << "Failed to initialize al_init_font_addon!" << endl;
+     exit(1);
+   }
+   if(!al_init_ttf_addon()) {
+     cerr << "Failed to initialize al_init_ttf_addon!" << endl;
+     exit(1);
+   }
 
    if(!al_install_mouse()) {
      cerr << "Failed to install mouse." << endl;
@@ -47,6 +58,8 @@ int main(int argc, char **argv){
    al_set_new_display_option(ALLEGRO_VSYNC, 1, ALLEGRO_REQUIRE);
 
    ALLEGRO_DISPLAY *display = al_create_display(WIDTH, HEIGHT);
+
+   ALLEGRO_FONT* font1 = al_load_font("arial.ttf",72,0);
 
    if(!display) {
       al_show_native_message_box(display, "Error", "Error", "Failed to initialize display!",
@@ -101,6 +114,13 @@ int main(int argc, char **argv){
          world.advance_by_time(1/FPS);
 
          world.draw();
+
+         al_draw_text(font1, al_map_rgb(0,0,0),0, 20,0,"Score: ");
+         stringstream s;
+         string string_cheese;
+         s << world.get_score();
+         string_cheese=s.str();
+         al_draw_text(font1,al_map_rgb(0,0,0),215,25,0,string_cheese.c_str());
 
          al_flip_display();
       }
