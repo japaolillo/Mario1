@@ -20,6 +20,8 @@ namespace csis3700 {
 
             void create_image_sequence();
 
+            void advance_by_time(double dt);
+
         protected:
 
         private:

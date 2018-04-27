@@ -9,6 +9,7 @@
 #include "collision.h"
 #include "image_library.h"
 #include "enemy.h"
+#include "coin_sprite.h"
 
 using namespace std;
 
@@ -23,10 +24,21 @@ namespace csis3700 {
   world::world() {
       score = 0;
       background=image_library::get()->get("background.png");
+      sprite* coins[10];
+      for (size_t i = 0; i < 10; i++)
+      {
+          coins[i] = new coin_sprite(200*i,880);
+      }
       sprite *player = new player_sprite(0,700);
       sprite *enemy1 = new enemy(500,880);
+      sprite *coin1 = new coin_sprite(500,880);
       sprites.push_back(player);
       sprites.push_back(enemy1);
+      for (size_t i = 0; i < 10; i++)
+      {
+          sprites.push_back(coins[i]);
+      }
+
   }
 
   world::world(const world& other) {
