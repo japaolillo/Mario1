@@ -88,6 +88,7 @@ namespace csis3700 {
 
   void world::draw() {
     ALLEGRO_TRANSFORM t;
+    ALLEGRO_TRANSFORM t2;
     sprite* player = sprites.front();
     al_identity_transform(&t);
     if (player != nullptr)
@@ -101,6 +102,8 @@ namespace csis3700 {
     al_draw_bitmap(background,bn*background_width+background_width, 0, 0);
     for(vector<sprite*>::iterator it = sprites.begin(); it != sprites.end(); ++it)
       (*it)->draw();
+      al_identity_transform(&t2);
+      al_use_transform(&t2);
   }
 
   bool world::should_exit() {
