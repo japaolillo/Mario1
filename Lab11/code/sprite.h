@@ -80,6 +80,8 @@ namespace csis3700 {
      */
     virtual rectangle collision_rectangle(const sprite& other) const;
 
+    bool operator==(const sprite& other) const;
+
   protected:
 
     /**

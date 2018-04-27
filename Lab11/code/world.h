@@ -57,6 +57,8 @@ namespace csis3700 {
 
     void add_score();
 
+    void remove_sprite(sprite* s);
+
     int get_score() {
         return score;
     }

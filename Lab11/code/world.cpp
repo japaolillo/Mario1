@@ -27,19 +27,20 @@ namespace csis3700 {
       score = 0;
       background=image_library::get()->get("background.png");
       sprite* coins[10];
-      for (size_t i = 0; i < 10; i++)
+      for (size_t i = 1; i < 11; i++)
       {
-          coins[i] = new coin_sprite(200*i,880);
+          coins[i - 1] = new coin_sprite(200*i,880);
       }
       sprite *player = new player_sprite(0,700);
       sprite *enemy1 = new enemy(500,880);
-      sprite *coin1 = new coin_sprite(500,880);
+      sprite *safetycoin = new coin_sprite(0, -10000);
       sprites.push_back(player);
       sprites.push_back(enemy1);
       for (size_t i = 0; i < 10; i++)
       {
           sprites.push_back(coins[i]);
       }
+      sprites.push_back(safetycoin);
 
   }
 
@@ -108,6 +109,21 @@ namespace csis3700 {
 
   bool world::should_exit() {
     return false;
+  }
+
+  void world::remove_sprite(sprite *s)
+  {
+      size_t i = 0;
+      for (vector<sprite*>::iterator it = sprites.begin(); it != sprites.end(); ++it)
+      {
+            assert(sprites.front()->is_player());
+            if (**it == *s)
+                if (s == sprites.back())
+                    sprites.pop_back();
+                else
+                    sprites.erase(sprites.begin() + i);
+            i++;
+      }
   }
 
 }

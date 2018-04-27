@@ -66,5 +66,12 @@ namespace csis3700 {
       assert(is_player());
   }
 
+  bool sprite::operator==(const sprite& other) const
+  {
+      if (get_position().get_x() == other.get_position().get_x() && get_position().get_y() == other.get_position().get_y())
+        if (is_player() == other.is_player() && is_coin() == other.is_coin() && is_enemy() == other.is_enemy())
+            return true;
+      return false;
+  }
 
 }

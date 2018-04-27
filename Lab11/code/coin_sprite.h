@@ -22,10 +22,13 @@ namespace csis3700 {
 
             void advance_by_time(double dt);
 
+            int get_index() const {return index;};
+
         protected:
 
         private:
             vec2d velocity;
+            size_t index;
     };
 }
 #endif // COIN_SPRITE_H

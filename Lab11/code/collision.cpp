@@ -47,6 +47,7 @@ namespace csis3700 {
                 coin = participants[1];
                 player = participants[0];
             }
+            w->remove_sprite(coin);
             w->add_score();
         }
   }
