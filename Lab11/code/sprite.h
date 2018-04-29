@@ -50,6 +50,8 @@ namespace csis3700 {
 
     virtual bool is_coin() const = 0;
 
+    virtual bool is_obstruction() const = 0;
+
     virtual void kill_player();
 
     /**

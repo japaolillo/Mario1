@@ -22,6 +22,8 @@ namespace csis3700 {
     virtual vec2d get_velocity() const;
     virtual void set_velocity(const vec2d& v);
 
+    bool is_obstruction() const {return false;};
+
   private:
     vec2d velocity;
     vec2d acceleration;

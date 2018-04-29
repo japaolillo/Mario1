@@ -19,6 +19,7 @@ namespace csis3700 {
     bool is_player() const {return false;};
     bool is_coin() const {return false;};
     bool is_enemy() const {return false;};
+    bool is_obstruction() const {return true;};
     void advance_by_time(double dt) {sprite::advance_by_time(dt);};
   };
 }

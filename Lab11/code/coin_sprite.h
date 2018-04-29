@@ -18,6 +18,8 @@ namespace csis3700 {
 
             bool is_coin() const {return true;};
 
+            bool is_obstruction() const {return false;};
+
             void create_image_sequence();
 
             void advance_by_time(double dt);

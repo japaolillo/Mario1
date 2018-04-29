@@ -31,7 +31,7 @@ namespace csis3700 {
             //player->set_velocity(vec2d(player->get_velocity().get_x(), -500));
             player->kill_player();
         }
-        //Change to if player hits coin
+        //if player hits coin
         if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_coin() || participants[1]->is_coin()))
         {
 
@@ -49,6 +49,23 @@ namespace csis3700 {
             }
             w->remove_sprite(coin);
             w->add_score();
+        }
+        //if player hits ball
+        if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_obstruction() || participants[1]->is_obstruction()))
+        {
+            sprite* obstruction;
+            sprite* player;
+            if (participants[0]->is_obstruction())
+            {
+                obstruction = participants[0];
+                player = participants[1];
+            }
+            else
+            {
+                obstruction = participants[1];
+                player = participants[0];
+            }
+            player->set_velocity(vec2d(-player->get_velocity().get_x(),-player->get_velocity().get_y()));
         }
   }
 
