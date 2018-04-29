@@ -88,8 +88,18 @@ namespace csis3700 {
                 set_image_sequence(&walk);
             if (get_y() == player_floor)
             {
+                set_position(vec2d(get_position().get_x(), player_floor));
                 if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
-                    set_velocity(vec2d(1000,-3000));
+                {
+                    set_velocity(vec2d(get_velocity().get_x(),-3000));
+                    if (get_velocity().get_x() <= 1000)
+                        set_acceleration(vec2d(4000, get_acceleration().get_y()));
+                    else
+                    {
+                        set_acceleration(vec2d(0,0));
+                        set_velocity(vec2d(1000,get_velocity().get_y()));
+                    }
+                }
                 else
                 {
                     if (get_velocity().get_x() <= 1000)
@@ -111,9 +121,16 @@ namespace csis3700 {
             }
             if (get_y() > player_floor)
             {
-                set_acceleration(vec2d(get_acceleration().get_x(),0));
-                set_velocity(vec2d(1000,0));
                 set_position(vec2d(get_position().get_x(), player_floor));
+                if (get_velocity().get_x() <= 1000)
+                    set_acceleration(vec2d(4000,0));
+                else
+                {
+                    set_acceleration(vec2d(0,0));
+                    set_velocity(vec2d(1000,0));
+                }
+                //set_acceleration(vec2d(get_acceleration().get_x(),0));
+                //set_velocity(vec2d(1000,0));
             }
         }
         else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
