@@ -28,7 +28,7 @@ namespace csis3700 {
   void player_sprite::advance_by_time(double dt) {
     if (is_luigi)
         player_floor = 754;
-    if (is_alive) {
+    if (is_alive) {/*
         ltime += 1;
         if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)) //Shapeshift
         {
@@ -180,6 +180,125 @@ namespace csis3700 {
                 set_image_sequence(&lstand);
             else
                 set_image_sequence(&stand);
+        }*/
+        float maxvel = 1000;
+        float accel = 8000;
+        float jump = -3000;
+
+
+        //BOTH LEFT AND RIGHT
+        if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT) && keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT))
+        {
+            if (get_y() < player_floor)
+            {
+                float a;
+                if (get_velocity().get_x() > 0)
+                    a = -accel/8;
+                else if (get_velocity().get_x() < 0)
+                    a = accel/8;
+                else
+                    0;
+                set_acceleration(vec2d(a,get_acceleration().get_y()));
+            }
+            if (get_y() == player_floor)
+            {
+                if (get_velocity().get_x() > 100)
+                    set_acceleration(vec2d(-accel/1.5,get_acceleration().get_y()));
+                else if (get_velocity().get_x() < -100)
+                    set_acceleration(vec2d(accel/1.5,get_acceleration().get_y()));
+                else
+                    set_velocity(vec2d(0,get_velocity().get_y()));
+            }
+            if(is_luigi==true)
+                set_image_sequence(&lstand);
+            else
+                set_image_sequence(&stand);
+        }
+
+        //MOVE RIGHT
+        else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT)
+            || keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT) && keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+        {
+            //SETTING IMAGE SEQUENCE
+            if(is_luigi==true)
+                set_image_sequence(&lwalk);
+            else
+                set_image_sequence(&walk);
+            ///////////////////////////////
+
+            if (get_velocity().get_x() < maxvel)
+                set_acceleration(vec2d(accel,get_acceleration().get_y()));
+            else
+                set_velocity(vec2d(maxvel,get_velocity().get_y()));
+        }
+
+        //MOVE LEFT
+        else if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT)
+            || keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT) && keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+        {
+            //SETTING IMAGE SEQUENCE
+            if(is_luigi==true)
+                set_image_sequence(&lwalk);
+            else
+                set_image_sequence(&walk);
+            //////////////////////////////
+
+            if (get_velocity().get_x() > -maxvel)
+                set_acceleration(vec2d(-accel,get_acceleration().get_y()));
+            else
+                set_velocity(vec2d(-maxvel,get_velocity().get_y()));
+        }
+
+        //NOTHING PRESSED
+        else
+        {
+            if (get_y() < player_floor)
+            {
+                float a;
+                if (get_velocity().get_x() > 0)
+                    a = -accel/8;
+                else if (get_velocity().get_x() < 0)
+                    a = accel/8;
+                else
+                    0;
+                set_acceleration(vec2d(a,get_acceleration().get_y()));
+            }
+            if (get_y() == player_floor)
+            {
+                if (get_velocity().get_x() > 100)
+                    set_acceleration(vec2d(-accel/1.5,get_acceleration().get_y()));
+                else if (get_velocity().get_x() < -100)
+                    set_acceleration(vec2d(accel/1.5,get_acceleration().get_y()));
+                else
+                    set_velocity(vec2d(0,get_velocity().get_y()));
+            }
+            if(is_luigi==true)
+                set_image_sequence(&lstand);
+            else
+                set_image_sequence(&stand);
+        }
+
+        //GRAVITY
+        if (get_y() < player_floor)
+            set_acceleration(vec2d(get_acceleration().get_x(), 10000));
+        //ENSURE HE DOESN'T GO BELOW FLOOR
+        if (get_y() > player_floor)
+        {
+            set_position(vec2d(get_position().get_x(), player_floor));
+            set_acceleration(vec2d(get_acceleration().get_x(), 0));
+            set_velocity(vec2d(get_velocity().get_x(), 0));
+        }
+
+        //JUMPING
+        if (get_y() == player_floor)
+        {
+            if (keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP) && keyboard_manager::get()->is_key_down(ALLEGRO_KEY_RIGHT)
+                ||
+                keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP) && keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT)
+                ||
+                keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+                    set_velocity(vec2d(get_velocity().get_x(),jump));
+            set_acceleration(vec2d(get_acceleration().get_x(), 0));
         }
     }
     else
