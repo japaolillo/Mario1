@@ -10,11 +10,11 @@
 using namespace std;
 
 namespace csis3700 {
-    enemy::enemy(float initial_x, float initial_y) : phys_sprite(initial_x, initial_y)
+    enemy::enemy(float initial_x, float initial_y, size_t randseed) : phys_sprite(initial_x, initial_y)
     {
         this->create_image_sequence();
         enemy_floor = 775;
-        srand(std::time(NULL));
+        srand(randseed);
         random = rand();
     }
     void enemy::create_image_sequence()

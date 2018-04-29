@@ -29,6 +29,7 @@ namespace csis3700 {
             else
                 player = participants[1];
             //player->set_velocity(vec2d(player->get_velocity().get_x(), -500));
+
             player->kill_player();
             w->remove_sprite(player);
         }
