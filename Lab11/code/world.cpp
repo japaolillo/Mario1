@@ -45,7 +45,7 @@ namespace csis3700 {
       }
       for (size_t i = 1; i < 21; i++)
       {
-          sprites.push_back(new obstruction_sprite(800*i, 680));
+          sprites.push_back(new obstruction_sprite(800*i, 850));
       }
       sprites.push_back(safetycoin);
 
@@ -92,26 +92,58 @@ namespace csis3700 {
     for(vector<sprite*>::iterator it = sprites.begin(); it != sprites.end(); ++it)
       (*it)->advance_by_time(dt);
     resolve_collisions();
+    if (score == 10 && level == 1)
+        change_level();
+  }
+
+  void world::change_level()
+  {
+      level = 2;
+      while (!(sprites.back()->is_player()))
+        sprites.pop_back();
+      score = 0;
+      sprites.back()->set_position(vec2d(0,800));
+      background=image_library::get()->get("background2.png");
+      //sprite *player = new player_sprite(0,700);
+      //sprite *enemy1 = new enemy(500,880);
+      sprite *safetycoin = new coin_sprite(0, -10000);
+      //sprite *obstruction = new obstruction_sprite(500, 660);
+      //sprites.push_back(player);
+      //sprites.push_back(enemy1);
+      //sprites.push_back(obstruction);
+      for (size_t i = 1; i < 31; i++)
+      {
+          sprites.push_back(new enemy(400*i , 880, i));
+      }
+      for (size_t i = 1; i < 21; i++)
+      {
+          sprites.push_back(new coin_sprite(500*i,850));
+      }
+      for (size_t i = 1; i < 31; i++)
+      {
+          sprites.push_back(new obstruction_sprite(400*i, 850));
+      }
+      sprites.push_back(safetycoin);
   }
 
   void world::draw() {
-    ALLEGRO_TRANSFORM t;
-    ALLEGRO_TRANSFORM t2;
-    sprite* player = sprites.front();
-    al_identity_transform(&t);
-    if (player != nullptr)
-      al_translate_transform(&t, -player->get_x()+50, 0);
-    al_use_transform(&t);
-    al_clear_to_color(al_map_rgb(255,255,255));
-    int background_width = al_get_bitmap_width(background);
-    int bn=player->get_x()/background_width;
-    al_draw_bitmap(background,bn*background_width-background_width, 0, 0);
-    al_draw_bitmap(background, bn*background_width, 0, 0);
-    al_draw_bitmap(background,bn*background_width+background_width, 0, 0);
-    for(vector<sprite*>::iterator it = sprites.begin(); it != sprites.end(); ++it)
-      (*it)->draw();
-      al_identity_transform(&t2);
-      al_use_transform(&t2);
+        ALLEGRO_TRANSFORM t;
+        ALLEGRO_TRANSFORM t2;
+        sprite* player = sprites.front();
+        al_identity_transform(&t);
+        if (player != nullptr)
+          al_translate_transform(&t, -player->get_x()+200, 0);
+        al_use_transform(&t);
+        al_clear_to_color(al_map_rgb(255,255,255));
+        int background_width = al_get_bitmap_width(background);
+        int bn=player->get_x()/background_width;
+        al_draw_bitmap(background,bn*background_width-background_width, 0, 0);
+        al_draw_bitmap(background, bn*background_width, 0, 0);
+        al_draw_bitmap(background,bn*background_width+background_width, 0, 0);
+        for(vector<sprite*>::iterator it = sprites.begin(); it != sprites.end(); ++it)
+          (*it)->draw();
+          al_identity_transform(&t2);
+          al_use_transform(&t2);
   }
 
   bool world::should_exit() {
