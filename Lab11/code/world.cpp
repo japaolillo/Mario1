@@ -34,8 +34,10 @@ namespace csis3700 {
       sprite *player = new player_sprite(0,700);
       sprite *enemy1 = new enemy(500,880);
       sprite *safetycoin = new coin_sprite(0, -10000);
+      sprite *obstruction = new obstruction_sprite(500, 660);
       sprites.push_back(player);
       sprites.push_back(enemy1);
+      sprites.push_back(obstruction);
       for (size_t i = 0; i < 10; i++)
       {
           sprites.push_back(coins[i]);

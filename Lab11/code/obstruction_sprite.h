@@ -13,8 +13,13 @@ namespace csis3700 {
   class obstruction_sprite : public sprite {
   public:
     obstruction_sprite(float initial_x, float initial_y, ALLEGRO_BITMAP *image=NULL);
+    void create_image_sequence();
     virtual void set_velocity(const vec2d& v);
     virtual vec2d get_velocity() const;
+    bool is_player() const {return false;};
+    bool is_coin() const {return false;};
+    bool is_enemy() const {return false;};
+    void advance_by_time(double dt) {sprite::advance_by_time(dt);};
   };
 }
 
