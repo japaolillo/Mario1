@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include "keyboard_manager.h"
 #include "allegro5/allegro.h"
 #include "allegro5/allegro_image.h"
 #include "allegro5/allegro_native_dialog.h"
@@ -125,12 +126,10 @@ int main(int argc, char **argv){
          al_flip_display();
       }
    } while(!world.should_exit() && ev.type != ALLEGRO_EVENT_DISPLAY_CLOSE);
-
-
-
-   al_destroy_timer(timer);
-   al_destroy_display(display);
-   al_destroy_event_queue(event_queue);
-
+      //al_clear_to_color(al_map_rgb(255,255,255));
+      al_rest(3.0);
+      al_destroy_timer(timer);
+      al_destroy_display(display);
+      al_destroy_event_queue(event_queue);
    return 0;
 }

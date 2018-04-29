@@ -4,6 +4,8 @@
 #include "sprite.h"
 #include "allegro5/allegro.h"
 #include "allegro5/allegro_image.h"
+#include "allegro5/allegro_native_dialog.h"
+#include "allegro5/allegro_primitives.h"
 #include "player_sprite.h"
 #include "obstruction_sprite.h"
 #include "collision.h"
@@ -110,6 +112,11 @@ namespace csis3700 {
   }
 
   bool world::should_exit() {
+      if(sprites.front()->is_player() == false)
+      {
+          //al_draw_rectangle(100,100,100,100,al_map_rgb(255,255,255),1.2);
+          return true;
+      }
     return false;
   }
 
@@ -118,7 +125,7 @@ namespace csis3700 {
       size_t i = 0;
       for (vector<sprite*>::iterator it = sprites.begin(); it != sprites.end(); ++it)
       {
-            assert(sprites.front()->is_player());
+            //assert(sprites.front()->is_player());
             if (**it == *s)
                 if (s == sprites.back())
                     sprites.pop_back();
