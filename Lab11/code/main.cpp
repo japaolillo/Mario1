@@ -8,6 +8,8 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_color.h>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 #include "world.h"
 #include <string>
 #include <sstream>
@@ -32,6 +34,14 @@ int main(int argc, char **argv){
 
    if(!al_init_image_addon()) {
      cerr << "Failed to initialize al_init_image_addon!" << endl;
+     exit(1);
+   }
+   if(!al_install_audio()) {
+     cerr << "Failed to initialize al_install_audio!" << endl;
+     exit(1);
+   }
+   if(!al_init_acodec_addon()) {
+     cerr << "Failed to initialize al_acodec_image_addon!" << endl;
      exit(1);
    }
    if(!al_init_font_addon()) {
@@ -61,6 +71,18 @@ int main(int argc, char **argv){
    ALLEGRO_DISPLAY *display = al_create_display(WIDTH, HEIGHT);
 
    ALLEGRO_FONT* font1 = al_load_font("arial.ttf",72,0);
+   ALLEGRO_SAMPLE* coin = nullptr;
+   ALLEGRO_SAMPLE* jump = nullptr;
+   ALLEGRO_SAMPLE_INSTANCE* music = nullptr;
+   al_reserve_samples(10);
+
+   coin = al_load_sample();
+   jump = al_load_sample();
+   music = al_load_sample_instance();
+
+   al_set_sample_instance_playmode(music,ALLEGRO_PLAYMODE_LOOP);
+
+   al_attach_sample_instance_to_mixer(music,al_get_default_mixer());
 
    if(!display) {
       al_show_native_message_box(display, "Error", "Error", "Failed to initialize display!",
@@ -98,6 +120,7 @@ int main(int argc, char **argv){
    double time = 0;
    bool redraw = true; // paint the first time through
    ALLEGRO_EVENT ev;
+   al_play_sample_instance(music);
    do
    {
       al_wait_for_event(event_queue, &ev);
@@ -127,9 +150,14 @@ int main(int argc, char **argv){
       }
    } while(!world.should_exit() && ev.type != ALLEGRO_EVENT_DISPLAY_CLOSE);
       //al_clear_to_color(al_map_rgb(255,255,255));
+      al_stop_sample_instance(music);
       al_rest(3.0);
       al_destroy_timer(timer);
       al_destroy_display(display);
       al_destroy_event_queue(event_queue);
+      al_destroy_font(font1);
+      al_destroy_sample(coin);
+      al_destroy_sample(jump);
+      al_destroy_sample(music);
    return 0;
 }
