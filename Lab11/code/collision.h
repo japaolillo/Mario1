@@ -4,6 +4,8 @@
 #include "sprite.h"
 #include "rectangle.h"
 #include "world.h"
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_audio.h>
 
 namespace csis3700 {
   class collision {
@@ -12,7 +14,7 @@ namespace csis3700 {
     sprite** get_participants();
     rectangle collision_rectangle() const;
     void resolve(world* w);
-
+    ALLEGRO_SAMPLE* coinn = nullptr;
   private:
     sprite* participants[2];
   };

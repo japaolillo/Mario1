@@ -6,6 +6,8 @@
 #include "keyboard_manager.h"
 #include <cmath>
 #include <iostream>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 using namespace std;
 
 namespace csis3700 {
@@ -296,9 +298,13 @@ namespace csis3700 {
                 ||
                 keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP) && keyboard_manager::get()->is_key_down(ALLEGRO_KEY_LEFT)
                 ||
-                keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP))
+                keyboard_manager::get()->is_key_down(ALLEGRO_KEY_UP)) {
                     set_velocity(vec2d(get_velocity().get_x(),jump));
+                    jumpp = al_load_sample("jump.ogg");
+                    al_play_sample(jumpp,1,0,1,ALLEGRO_PLAYMODE_ONCE,0);
+                }
             set_acceleration(vec2d(get_acceleration().get_x(), 0));
+
         }
     }
     else
@@ -330,5 +336,7 @@ namespace csis3700 {
     void player_sprite::kill_player()
     {
         is_alive = false;
+        al_destroy_sample(jumpp);
+
     }
 }

@@ -4,6 +4,8 @@
 #include "world.h"
 #include <iostream>
 #include <cassert>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 using namespace std;
 
 namespace csis3700 {
@@ -32,6 +34,7 @@ namespace csis3700 {
 
             player->kill_player();
             w->remove_sprite(player);
+            al_destroy_sample(coinn);
         }
         //if player hits coin
         if ((participants[0]->is_player() || participants[1]->is_player()) && (participants[0]->is_coin() || participants[1]->is_coin()))
@@ -49,6 +52,8 @@ namespace csis3700 {
                 coin = participants[1];
                 player = participants[0];
             }
+            coinn = al_load_sample("coin.ogg");
+            al_play_sample(coinn,1,0,1,ALLEGRO_PLAYMODE_ONCE, 0);
             w->remove_sprite(coin);
             w->add_score();
         }

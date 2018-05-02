@@ -1,6 +1,8 @@
 #ifndef __CDS_PLAYER_SPRITE_H
 #define __CDS_PLAYER_SPRITE_H
 #include "phys_sprite.h"
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_audio.h>
 
 namespace csis3700 {
   class player_sprite : public phys_sprite {
@@ -23,6 +25,7 @@ namespace csis3700 {
     bool is_luigi=false;
     double ltime=0;
     bool is_alive = true;
+    ALLEGRO_SAMPLE* jumpp = nullptr;
   };
 }
 
