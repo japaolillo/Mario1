@@ -72,6 +72,8 @@ namespace csis3700 {
                 obstruction = participants[1];
                 player = participants[0];
             }
+            coinn = al_load_sample("jump.ogg");
+            al_play_sample(coinn,1,0,1,ALLEGRO_PLAYMODE_ONCE, 0);
             player->set_velocity(vec2d(-player->get_velocity().get_x(),-player->get_velocity().get_y()));
         }
   }
