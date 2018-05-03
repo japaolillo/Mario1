@@ -79,13 +79,11 @@ int main(int argc, char **argv){
    al_set_sample_instance_playmode(musici,ALLEGRO_PLAYMODE_LOOP);
 
    al_attach_sample_instance_to_mixer(musici,al_get_default_mixer());
-
    if(!display) {
       al_show_native_message_box(display, "Error", "Error", "Failed to initialize display!",
                                  NULL, ALLEGRO_MESSAGEBOX_ERROR);
       return 0;
    }
-
 
    ALLEGRO_TIMER *timer = al_create_timer(1.0 / FPS);
    if(!timer) {
@@ -154,9 +152,13 @@ int main(int argc, char **argv){
          al_flip_display();
       }
    } while(!world.should_exit() && ev.type != ALLEGRO_EVENT_DISPLAY_CLOSE);
-      //al_clear_to_color(al_map_rgb(255,255,255));
       al_stop_sample_instance(musici);
-      al_rest(3.0);
+      ALLEGRO_DISPLAY *display1 = NULL;
+      //al_draw_circle(100,100,50,al_map_rgb(0,0,0),3);
+      al_draw_text(font1,al_map_rgb(255,0,0),800,510,0,"Game Over!");
+      al_flip_display();
+      al_rest(3);
+      al_destroy_display(display1);
       al_destroy_timer(timer);
       al_destroy_display(display);
       al_destroy_event_queue(event_queue);
