@@ -155,7 +155,10 @@ int main(int argc, char **argv){
       al_stop_sample_instance(musici);
       ALLEGRO_DISPLAY *display1 = NULL;
       //al_draw_circle(100,100,50,al_map_rgb(0,0,0),3);
-      al_draw_text(font1,al_map_rgb(255,0,0),800,510,0,"Game Over!");
+      if (!world.get_win())
+        al_draw_text(font1,al_map_rgb(255,0,0),800,510,0,"Game Over!");
+        if (world.get_win())
+          al_draw_text(font1,al_map_rgb(255,0,0),800,510,0,"You Win!");
       al_flip_display();
       al_rest(3);
       al_destroy_display(display1);

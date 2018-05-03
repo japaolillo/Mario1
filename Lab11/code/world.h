@@ -69,6 +69,8 @@ namespace csis3700 {
 
     void set_endgame(bool s) {endgame = s;};
 
+    bool get_win() {return win;};
+
   private:
     void resolve_collisions();
     void handle_collisions(std::vector<collision>& c);
@@ -78,6 +80,7 @@ namespace csis3700 {
     int score;
     size_t level = 1;
     bool endgame = false;
+    bool win = false;
   };
 }
 

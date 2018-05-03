@@ -30,7 +30,7 @@ namespace csis3700 {
   void player_sprite::advance_by_time(double dt) {
     if (is_luigi)
         player_floor = 754;
-    if (is_alive) {/*
+    if (is_alive) {
         ltime += 1;
         if(keyboard_manager::get()->is_key_down(ALLEGRO_KEY_L)) //Shapeshift
         {
@@ -42,7 +42,7 @@ namespace csis3700 {
                 is_luigi=false;
                 ltime = 0;
             }
-        }
+        }/*
         if (get_y() < player_floor) //Acceleration of gravity
         {
             set_acceleration(vec2d(get_acceleration().get_x(), 10000));

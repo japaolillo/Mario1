@@ -35,15 +35,15 @@ namespace csis3700 {
       sprites.push_back(player);
       //sprites.push_back(enemy1);
       //sprites.push_back(obstruction);
-      for (size_t i = 1; i < 101; i++)
+      for (size_t i = 1; i < 51; i++)
       {
           sprites.push_back(new enemy(800*i , 880, i));
       }
-      for (size_t i = 1; i < 101; i++)
+      for (size_t i = 1; i < 51; i++)
       {
           sprites.push_back(new coin_sprite(500*i,850));
       }
-      for (size_t i = 1; i < 101; i++)
+      for (size_t i = 1; i < 51; i++)
       {
           sprites.push_back(new obstruction_sprite(800*i, 850));
       }
@@ -95,11 +95,19 @@ namespace csis3700 {
     if (score == 10 && level == 1)
         change_level();
     if (score == 10 && level == 2)
+    {
+        win = true;
         endgame = true;
+    }
   }
 
   void world::change_level()
   {
+      /*
+      ALLEGRO_FONT* font1 = al_load_font("arial.ttf",72,0);
+      al_draw_text(font1,al_map_rgb(255,0,0),800,510,0,"Advance to Level 2!");
+      */
+      al_rest(2);
       level = 2;
       while (!(sprites.back()->is_player()))
         sprites.pop_back();
