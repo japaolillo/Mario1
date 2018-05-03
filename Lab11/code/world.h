@@ -75,6 +75,7 @@ namespace csis3700 {
     ALLEGRO_BITMAP* background;
     int score;
     size_t level = 1;
+    bool endgame = false;
   };
 }
 

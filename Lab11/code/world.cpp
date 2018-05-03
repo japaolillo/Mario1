@@ -94,6 +94,8 @@ namespace csis3700 {
     resolve_collisions();
     if (score == 10 && level == 1)
         change_level();
+    if (score == 10 && level == 2)
+        endgame = true;
   }
 
   void world::change_level()
@@ -152,6 +154,8 @@ namespace csis3700 {
           //al_draw_rectangle(100,100,100,100,al_map_rgb(255,255,255),1.2);
           return true;
       }
+      if (endgame)
+        return true;
     return false;
   }
 
