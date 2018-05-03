@@ -67,6 +67,8 @@ namespace csis3700 {
 
     int get_level() { return level;};
 
+    void set_endgame(bool s) {endgame = s;};
+
   private:
     void resolve_collisions();
     void handle_collisions(std::vector<collision>& c);

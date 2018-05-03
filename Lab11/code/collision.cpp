@@ -33,7 +33,9 @@ namespace csis3700 {
             //player->set_velocity(vec2d(player->get_velocity().get_x(), -500));
 
             player->kill_player();
-            w->remove_sprite(player);
+            w->set_endgame(true);
+            //w->remove_sprite(player);
+
             al_destroy_sample(coinn);
         }
         //if player hits coin
