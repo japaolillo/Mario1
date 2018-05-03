@@ -65,6 +65,8 @@ namespace csis3700 {
 
     void change_level();
 
+    int get_level() { return level;};
+
   private:
     void resolve_collisions();
     void handle_collisions(std::vector<collision>& c);

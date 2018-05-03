@@ -142,6 +142,13 @@ int main(int argc, char **argv){
          string_cheese=s.str();
          al_draw_text(font1,al_map_rgb(0,0,0),215,25,0,string_cheese.c_str());
 
+         al_draw_text(font1, al_map_rgb(0,0,0),0, 90,0,"Level: ");
+         stringstream s2;
+         string string_cheese2;
+         s2 << world.get_level();
+         string_cheese2=s2.str();
+         al_draw_text(font1,al_map_rgb(0,0,0),215,90,0,string_cheese2.c_str());
+
          al_flip_display();
       }
    } while(!world.should_exit() && ev.type != ALLEGRO_EVENT_DISPLAY_CLOSE);

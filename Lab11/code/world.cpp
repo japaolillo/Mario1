@@ -35,15 +35,15 @@ namespace csis3700 {
       sprites.push_back(player);
       //sprites.push_back(enemy1);
       //sprites.push_back(obstruction);
-      for (size_t i = 1; i < 21; i++)
+      for (size_t i = 1; i < 101; i++)
       {
           sprites.push_back(new enemy(800*i , 880, i));
       }
-      for (size_t i = 1; i < 11; i++)
+      for (size_t i = 1; i < 101; i++)
       {
           sprites.push_back(new coin_sprite(500*i,850));
       }
-      for (size_t i = 1; i < 21; i++)
+      for (size_t i = 1; i < 101; i++)
       {
           sprites.push_back(new obstruction_sprite(800*i, 850));
       }
